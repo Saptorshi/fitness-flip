@@ -1,0 +1,53 @@
+1. Add a Center
+
+Command: addCenter <name> <city> <location> <lat> <long>
+
+addCenter Bellandur Bangalore "Main Road" 12.9260 77.6697
+
+2. Add a Slot
+
+Command: addSlot <centerId> <workoutType> <startTime> <seats> <isPremium> <waitingListSize>
+
+addSlot Bellandur Yoga 06:00 10 false 5
+
+3. Register a User
+
+Command: registerUser <name> <persona> <lat> <long>
+
+registerUser Saptorshi FK_NORMAL_USER 12.9250 77.6680
+
+registerUser Rahul FK_VIP_USER 12.9270 77.6700
+
+4. Get Available Slots
+
+Command: getAvailableSlots <centerId> <date>
+
+getAvailableSlots Bellandur 2025-04-27
+
+5. Show Slots for User
+
+Shows available slots for a user at a center on a specific date, optionally filtered by workout type and time range. VIP users see premium slots; normal users do not.
+
+Command: showSlotsForUser <userId> <centerId> <date> [workoutType] [timeRangeStart] [timeRangeEnd]
+
+showSlotsForUser U1 Bellandur 2025-04-27 Yoga 06:00 09:00
+
+showSlotsForUser U1 Bellandur 2025-04-27
+
+6. Book a Slot
+
+Command: bookSlot <userId> <slotId> <date>
+
+bookSlot U1 Bellandur-Yoga-06:00 2025-04-27
+
+7. Cancel a Booking
+
+Command: cancelBooking <userId> <slotId> <date>
+
+cancelBooking U1 Bellandur-Yoga-06:00 2025-04-27
+
+8. View User Booking
+
+Command: viewUserBooking <userId> <date>
+
+viewUserBooking U1 2025-04-27
