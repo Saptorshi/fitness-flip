@@ -8,6 +8,7 @@ class FlipFitApp {
     constructor() {
         // Strategy Pattern for storage (easy to swap storage mechanism)
         this.storage = new InMemoryStorage();
+        // this.storage = InMemoryStorage.getInstance();
         this.notificationService = new NotificationService();
         this.centerService = new CenterService(this.storage);
         this.userService = new UserService(this.storage);

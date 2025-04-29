@@ -6,7 +6,7 @@ class Center {
         this.location = location;
         this.lat = lat;
         this.long = long;
-        this.slots = slots; // Map<slotId, Slot>
+        this.slots = slots; // Ensure this is initialized as a Map
         this.workoutTypes = new Set();
     }
 

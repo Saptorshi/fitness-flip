@@ -1,4 +1,5 @@
 const { User } = require('../models/User');
+const { USER_PERSONA } = require('../constants/UserPersona');
 
 class UserService {
     constructor(storage) {
@@ -6,7 +7,7 @@ class UserService {
     }
 
     async registerUser(name, persona, lat, long) {
-        if (!['FK_VIP_USER', 'FK_NORMAL_USER'].includes(persona)) {
+        if (!Object.values(USER_PERSONA).includes(persona)) {
             throw new Error('Invalid persona');
         }
         const id = `user_${Date.now()}`;
@@ -17,7 +18,8 @@ class UserService {
         } finally {
             await this.storage.releaseLock(`user_${id}`);
         }
-        console.log(`User ${name} registered successfully`);
+        console.log(`UserID : ${id},  User ${name} registered successfully`);
+        console.log(this.storage.printStorage()); // Debugging log
         return user;
     }
 }
